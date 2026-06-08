@@ -22,7 +22,10 @@ export default function SignupPage() {
         <div className="max-w-md mx-auto px-6 py-3 flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
-            <span className="text-sm sm:text-lg">BIR Form 1901</span>
+            <div className="flex flex-col">
+              <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
+              <span className="text-sm text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
+            </div>
           </Link>
         </div>
       </header>
@@ -34,8 +37,8 @@ export default function SignupPage() {
           <div className="space-y-8">
             {/* Header */}
             <div className="space-y-2">
-              <h1 className="text-3xl font-black text-[var(--color-text-primary)]">Create account</h1>
-              <p className="text-[var(--color-text-secondary)]">Get started with your business registration</p>
+              <h1 className="text-3xl font-black text-[var(--color-accent-primary)]">Create account</h1>
+              <p className="text-[var(--color-text-secondary)]">Get started with your <span className="text-[var(--color-accent-primary)] font-semibold">business registration</span></p>
             </div>
 
             {/* Form */}
