@@ -19,7 +19,10 @@ export default function Home() {
         <div className="max-w-md mx-auto px-6 py-3 flex items-center justify-between sm:max-w-2xl">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
-            <span className="text-sm sm:text-lg">BIR Form 1901</span>
+            <div className="flex flex-col">
+              <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
+              <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
+            </div>
           </Link>
           <div className="flex gap-3">
             <Link href="/login" className="hidden sm:block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
@@ -39,12 +42,12 @@ export default function Home() {
           <section className="space-y-8 py-8 sm:py-12">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-                Register your business
+                <span className="text-[var(--color-accent-primary)]">Register your</span> business
                 <br />
                 <span className="text-[var(--color-accent-primary)]">instantly online</span>
               </h1>
               <p className="text-base sm:text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-md">
-                Complete your BIR Form 1901 registration in minutes. No paperwork. No queues. Just digital efficiency.
+                Complete your <span className="text-[var(--color-accent-primary)] font-semibold">BIR Form 1901</span> registration in minutes. <span className="text-[var(--color-accent-primary)]">No paperwork. No queues.</span> Just digital efficiency.
               </p>
             </div>
 
