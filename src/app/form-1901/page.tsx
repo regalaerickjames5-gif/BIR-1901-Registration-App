@@ -326,12 +326,15 @@ export default function Form1901() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex flex-col font-sans relative overflow-hidden">
         {/* Header */}
-        <nav className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
-          <div className="container mx-auto px-6 py-4 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[var(--color-bir-yellow)] rounded-full flex items-center justify-center">
-              <span className="text-[var(--color-bir-blue)] font-bold text-xl">B</span>
-            </div>
-            <span className="text-lg font-bold tracking-tight text-white">Bureau of Internal Revenue</span>
+        <nav className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-50">
+          <div className="max-w-md mx-auto px-6 py-3 sm:max-w-2xl flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 font-bold">
+              <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
+              <div className="flex flex-col">
+                <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
+                <span className="text-sm text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
+              </div>
+            </Link>
           </div>
         </nav>
 
@@ -339,21 +342,21 @@ export default function Form1901() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-900/10 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-[100px] pointer-events-none"></div>
 
-        <div className="container mx-auto max-w-md px-6 sm:px-8 flex-1 flex flex-col justify-center relative z-10">
+        <div className="max-w-md mx-auto px-6 sm:px-8 flex-1 flex flex-col justify-center relative z-10">
           <div className="my-auto py-12">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              Register your<br/>
-              <span className="text-[var(--color-bir-yellow)]">Business</span><br/>
-              with ease.
+            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
+              <span className="text-[var(--color-accent-primary)]">Register your</span><br/>
+              <span className="text-white">Business</span><br/>
+              <span className="text-[var(--color-accent-primary)]">with ease.</span>
             </h1>
 
-            <p className="text-lg text-slate-300 mb-12 leading-relaxed max-w-md">
-              Experience the streamlined BIR Form 1901. Apply for registration of self-employed and mixed income individuals, estates, and trusts digitally.
+            <p className="text-lg text-[var(--color-text-secondary)] mb-12 leading-relaxed max-w-md">
+              Experience the streamlined <span className="text-[var(--color-accent-primary)] font-semibold">BIR Form 1901</span>. Apply for registration of <span className="text-[var(--color-accent-primary)]">self-employed and mixed income</span> individuals, estates, and trusts digitally.
             </p>
 
             <button 
               onClick={() => setStep(1)} 
-              className="w-full bg-[var(--color-bir-yellow)] text-[var(--color-bir-blue)] font-bold text-base py-3.5 rounded-lg flex justify-center items-center gap-2 hover:bg-yellow-300 transition-colors shadow-lg"
+              className="w-full bg-[var(--color-accent-primary)] text-black font-bold text-base py-3.5 rounded-lg flex justify-center items-center gap-2 hover:bg-yellow-400 active:scale-95 transition-all shadow-lg shadow-yellow-500/20"
             >
               Start Application <ArrowRight size={20} strokeWidth={2.5} />
             </button>
