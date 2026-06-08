@@ -22,10 +22,10 @@ export default function SignupPage() {
         <div className="max-w-md mx-auto px-6 py-3 flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
-            <div className="flex flex-col">
-              <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
-              <span className="text-sm text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
-            </div>
+            <span className="text-sm sm:text-lg">
+              <span className="text-[var(--color-text-secondary)]">Bureau of</span>{' '}
+              <span className="text-[var(--color-accent-primary)]">Internal Revenue</span>
+            </span>
           </Link>
         </div>
       </header>
