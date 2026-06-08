@@ -2,15 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Zap, Lock } from 'lucide-react';
-import { ThemeToggle } from './providers';
-import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] selection:bg-[var(--color-accent-primary)] selection:text-black relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -24,21 +17,20 @@ export default function Home() {
         <div className="absolute top-20 right-10 w-96 h-96 bg-[var(--color-accent-primary)]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-accent-secondary)]/3 rounded-full blur-3xl"></div>
       </div>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)] light-mode:bg-[var(--bir-blue)] light-mode:text-white">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)]">
         <div className="max-w-md mx-auto px-6 py-3 flex items-center justify-between sm:max-w-2xl">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
             <div className="flex flex-col leading-tight -space-y-0.5">
-              <span className="text-xs text-[var(--color-text-secondary)] light-mode:text-white/70">Bureau of</span>
-              <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold light-mode:text-yellow-400">Internal Revenue</span>
+              <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
+              <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
             </div>
           </Link>
           <div className="flex gap-3 items-center">
-            {mounted && <ThemeToggle />}
-            <Link href="/login" className="hidden sm:block text-sm text-[var(--color-text-secondary)] light-mode:text-white/70 hover:text-[var(--color-text-primary)] light-mode:hover:text-white transition-colors">
+            <Link href="/login" className="hidden sm:block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
               Log in
             </Link>
-            <Link href="/signup" className="text-sm bg-[var(--color-accent-primary)] text-black font-semibold px-4 py-2 rounded-md hover:bg-yellow-400 light-mode:bg-yellow-400 light-mode:hover:bg-yellow-300 transition-colors">
+            <Link href="/signup" className="text-sm bg-[var(--color-accent-primary)] text-black font-semibold px-4 py-2 rounded-md hover:bg-yellow-400 transition-colors">
               Sign up
             </Link>
           </div>

@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle2, FileText, User, Building, MapPin, Search } from 'lucide-react';
 import Image from 'next/image';
-import { ThemeToggle } from '@/app/providers';
 
 const COUNTRIES = [
   "Philippines", "United States", "Japan", "China", "South Korea", "Australia", 
@@ -220,11 +219,6 @@ export default function Form1901() {
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [errorMessage, setErrorMessage] = useState("");
   const [showSummary, setShowSummary] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const updateForm = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -332,7 +326,7 @@ export default function Form1901() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex flex-col font-sans relative overflow-hidden">
         {/* Header */}
-        <nav className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-50 light-mode:bg-[var(--bir-blue)] light-mode:border-[var(--bir-blue)]">
+        <nav className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-50">
           <div className="max-w-md mx-auto px-6 py-3 sm:max-w-2xl flex items-center justify-between gap-3">
             {step < 8 && (
               <Link href="/" className="hover:text-[var(--color-text-secondary)] transition-colors">
@@ -342,13 +336,12 @@ export default function Form1901() {
             <Link href="/" className="flex items-center gap-2 font-bold">
               <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
               <div className="flex flex-col leading-tight -space-y-0.5">
-                <span className="text-xs text-[var(--color-text-secondary)] light-mode:text-white/70">Bureau of</span>
-                <span className="text-sm text-[var(--color-accent-primary)] font-bold light-mode:text-yellow-400">Internal Revenue</span>
+                <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
+                <span className="text-sm text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
               </div>
             </Link>
             
             <div className="flex items-center gap-2 ml-auto">
-              {mounted && <ThemeToggle />}
               {step >= 8 ? (
                 <button onClick={handleLogout} className="text-xs bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-lg font-semibold transition-colors">
                   Logout
