@@ -3,11 +3,17 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Mail, Lock, Eye, EyeOff } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { ThemeToggle } from '@/app/providers';
 
 export default function LoginPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +24,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[var(--color-background)]">
       {/* Header */}
       <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-40">
-        <div className="max-w-md mx-auto px-6 py-3 flex items-center gap-3">
+        <div className="max-w-md mx-auto px-6 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
             <div className="flex flex-col leading-tight -space-y-0.5">
@@ -26,6 +32,7 @@ export default function LoginPage() {
               <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
             </div>
           </Link>
+          {mounted && <ThemeToggle />}
         </div>
       </header>
 

@@ -1,7 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Zap, Lock } from 'lucide-react';
+import { ThemeToggle } from './providers';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] selection:bg-[var(--color-accent-primary)] selection:text-black relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -24,7 +33,8 @@ export default function Home() {
               <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
             </div>
           </Link>
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center">
+            {mounted && <ThemeToggle />}
             <Link href="/login" className="hidden sm:block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
               Log in
             </Link>
