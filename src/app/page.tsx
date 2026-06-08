@@ -3,8 +3,18 @@ import { ArrowRight, CheckCircle2, Zap, Lock } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] selection:bg-[var(--color-accent-primary)] selection:text-black">
-      {/* Sticky Header - Mobile Optimized */}
+    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)] selection:bg-[var(--color-accent-primary)] selection:text-black relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <img 
+          src="/office-bg.jpg" 
+          alt="Background" 
+          className="absolute inset-0 w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-background)]/80 via-[var(--color-background)]/70 to-[var(--color-background)]/90"></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-[var(--color-accent-primary)]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-accent-secondary)]/3 rounded-full blur-3xl"></div>
+      </div>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)]">
         <div className="max-w-md mx-auto px-6 py-3 flex items-center justify-between sm:max-w-2xl">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg">
@@ -84,18 +94,12 @@ export default function Home() {
                 <p className="text-sm text-[var(--color-text-secondary)] mt-2">{item.label}</p>
               </div>
             ))}
-          </section>
-        </div>
-      </main>
-
-      {/* Background Elements */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-[var(--color-accent-primary)]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-accent-secondary)]/3 rounded-full blur-3xl"></div>
-      </div>
+      </section>
+    </div>
+  </main>
 
       {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 sm:hidden bg-[var(--color-surface)]/80 backdrop-blur-lg border-t border-[var(--color-border)] px-6 py-3">
+      <div className="fixed bottom-0 left-0 right-0 sm:hidden bg-[var(--color-surface)]/80 backdrop-blur-lg border-t border-[var(--color-border)] px-6 py-3 z-40">
         <Link href="/login" className="block text-center text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">
           Already registered? Log in
         </Link>
