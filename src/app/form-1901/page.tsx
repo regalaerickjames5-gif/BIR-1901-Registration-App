@@ -12,9 +12,9 @@ const COUNTRIES = [
 
 const InputField = ({ label, name, type = "text", placeholder = "", required = false, formData, updateForm, pattern, min, optionalLabel }: any) => (
   <div className="space-y-1">
-    <label className="text-[13px] font-semibold text-slate-300 flex justify-between">
-      <span>{label} {required && <span className="text-red-400">*</span>}</span>
-      {optionalLabel && <span className="text-slate-500 font-normal text-[11px]">(Optional)</span>}
+    <label className="text-[13px] font-semibold text-[var(--color-text-primary)] flex justify-between">
+      <span>{label} {required && <span className="text-red-500">*</span>}</span>
+      {optionalLabel && <span className="text-[var(--color-text-secondary)] font-normal text-[11px]">(Optional)</span>}
     </label>
     <input 
       type={type} 
@@ -23,7 +23,7 @@ const InputField = ({ label, name, type = "text", placeholder = "", required = f
       onChange={updateForm} 
       pattern={pattern}
       min={min}
-      className="w-full border border-slate-600 rounded-lg bg-slate-900/50 px-3 py-2.5 text-sm text-white focus:ring-2 focus:ring-[var(--color-bir-yellow)] focus:border-transparent outline-none transition-all placeholder:text-slate-500" 
+      className="w-full border border-[var(--color-border)] rounded-lg bg-[var(--color-surface-light)] px-3 py-2.5 text-sm text-[var(--color-text-primary)] focus:ring-2 focus:ring-[var(--color-accent-primary)] focus:border-transparent outline-none transition-all placeholder:text-[var(--color-text-secondary)]" 
       placeholder={placeholder} 
       required={required} 
     />
@@ -316,8 +316,8 @@ export default function Form1901() {
     setStep(0);
   };
 
-  const selectStyles = "w-full border border-slate-600 px-3 py-2.5 text-sm rounded-lg bg-slate-900/50 text-white outline-none focus:ring-2 focus:ring-[var(--color-bir-yellow)]";
-  const labelStyles = "text-[13px] font-semibold text-slate-300";
+  const selectStyles = "w-full border border-[var(--color-border)] px-3 py-2.5 text-sm rounded-lg bg-[var(--color-surface-light)] text-[var(--color-text-primary)] outline-none focus:ring-2 focus:ring-[var(--color-accent-primary)]";
+  const labelStyles = "text-[13px] font-semibold text-[var(--color-text-primary)]";
 
   // Calculate minimum expiry date (either effectivity date or today)
   const minExpiryDate = formData.effectivityDate || new Date().toISOString().split("T")[0];
@@ -364,19 +364,17 @@ export default function Form1901() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white font-sans">
-      <header className="bg-slate-900/80 text-white p-3 sm:p-4 shadow-md sticky top-0 z-50 border-b border-slate-800">
-        <div className="container mx-auto max-w-5xl flex items-center gap-3">
+    <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)]">
+      <header className="bg-[var(--color-surface)]/80 text-[var(--color-text-primary)] backdrop-blur-lg sticky top-0 z-50 border-b border-[var(--color-border)]">
+        <div className="max-w-md mx-auto px-6 py-3 sm:max-w-2xl lg:max-w-4xl flex items-center gap-3">
           {step < 8 && (
-            <Link href="/" className="hover:text-slate-300 transition-colors">
+            <Link href="/" className="hover:text-[var(--color-text-secondary)] transition-colors">
               <ArrowLeft size={20} />
             </Link>
           )}
           <div className="flex items-center gap-3">
-            <div className="bg-[var(--color-bir-yellow)] rounded-full p-1 w-9 h-9 flex items-center justify-center overflow-hidden">
-              <span className="text-[var(--color-bir-blue)] font-bold text-sm">B</span>
-            </div>
-            <h1 className="font-semibold text-base hidden sm:block">Form 1901 Registration</h1>
+            <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
+            <h1 className="font-semibold text-sm sm:text-base">BIR Form 1901 Registration</h1>
           </div>
           
           {step >= 8 ? (
@@ -384,28 +382,28 @@ export default function Form1901() {
               Logout
             </button>
           ) : (
-            <div className="ml-auto text-xs bg-slate-800 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700">
+            <div className="ml-auto text-xs bg-[var(--color-surface-light)] text-[var(--color-text-secondary)] px-3 py-1.5 rounded-lg border border-[var(--color-border)]">
               {`Step ${step} of 7`}
             </div>
           )}
         </div>
       </header>
 
-      <main className="container mx-auto max-w-4xl px-4 py-6 sm:py-8">
-        <div className="bg-slate-800/40 rounded-2xl shadow-xl border border-slate-700 overflow-hidden backdrop-blur-sm">
+      <main className="max-w-md mx-auto px-4 py-6 sm:py-8 sm:max-w-2xl lg:max-w-4xl">
+        <div className="bg-[var(--color-surface-light)]/50 rounded-2xl border border-[var(--color-border)] overflow-hidden backdrop-blur-sm">
           {step < 8 && (
-            <div className="px-4 py-6 sm:px-6 sm:py-8 border-b border-slate-700 bg-slate-800/50">
+            <div className="px-4 py-6 sm:px-6 sm:py-8 border-b border-[var(--color-border)] bg-[var(--color-surface)]/60">
               <div className="flex justify-between items-center mb-6 sm:mb-8">
-                <span className="font-bold text-slate-100 text-sm sm:text-lg">Step {step} of 7</span>
-                <span className="text-slate-400 text-xs sm:text-sm font-medium">{Math.round(((step - 1) / 7) * 100)}% complete</span>
+                <span className="font-bold text-[var(--color-text-primary)] text-sm sm:text-lg">Step {step} of 7</span>
+                <span className="text-[var(--color-text-secondary)] text-xs sm:text-sm font-medium">{Math.round(((step - 1) / 7) * 100)}% complete</span>
               </div>
               
               <div className="relative flex justify-between items-center w-full max-w-3xl mx-auto px-1 sm:px-4">
                 {/* Background Line */}
-                <div className="absolute left-1 right-1 sm:left-4 sm:right-4 top-1/2 -translate-y-1/2 h-1 bg-slate-700 rounded"></div>
+                <div className="absolute left-1 right-1 sm:left-4 sm:right-4 top-1/2 -translate-y-1/2 h-1 bg-[var(--color-border)] rounded"></div>
                 {/* Active Line Progress */}
-                <div className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 h-1 bg-[var(--color-bir-yellow)] rounded transition-all duration-500 sm:block hidden" style={{ width: `calc(${((step - 1) / 6) * 100}% - 2rem)` }}></div>
-                <div className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 h-1 bg-[var(--color-bir-yellow)] rounded transition-all duration-500 sm:hidden" style={{ width: `calc(${((step - 1) / 6) * 100}% - 0.5rem)` }}></div>
+                <div className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 h-1 bg-[var(--color-accent-primary)] rounded transition-all duration-500 sm:block hidden" style={{ width: `calc(${((step - 1) / 6) * 100}% - 2rem)` }}></div>
+                <div className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 h-1 bg-[var(--color-accent-primary)] rounded transition-all duration-500 sm:hidden" style={{ width: `calc(${((step - 1) / 6) * 100}% - 0.5rem)` }}></div>
                 
                 {FORM_STEPS.map((s) => {
                   const isActive = step === s.id;
@@ -414,15 +412,15 @@ export default function Form1901() {
                   return (
                     <div key={s.id} className="relative flex flex-col items-center group z-10">
                       <div className={`w-7 h-7 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold transition-all duration-300 ${
-                        isActive ? 'bg-[var(--color-bir-yellow)] text-[var(--color-bir-blue)] ring-[3px] sm:ring-[4px] ring-[var(--color-bir-yellow)]/20 border-2 border-transparent' :
-                        isCompleted ? 'bg-slate-700 border-2 border-[var(--color-bir-yellow)] text-[var(--color-bir-yellow)]' :
-                        'bg-slate-700 border-2 border-slate-600 text-slate-400'
+                        isActive ? 'bg-[var(--color-accent-primary)] text-black ring-[3px] sm:ring-[4px] ring-[var(--color-accent-primary)]/20 border-2 border-transparent' :
+                        isCompleted ? 'bg-[var(--color-surface-light)] border-2 border-[var(--color-accent-primary)] text-[var(--color-accent-primary)]' :
+                        'bg-[var(--color-surface-light)] border-2 border-[var(--color-border)] text-[var(--color-text-secondary)]'
                       }`}>
                         {s.id}
                       </div>
                       <span className={`absolute -bottom-5 sm:-bottom-6 text-[10px] sm:text-[11px] font-semibold whitespace-nowrap ${
-                        isActive ? 'block text-[var(--color-bir-yellow)]' : 
-                        isCompleted ? 'hidden sm:block text-slate-300' : 'hidden sm:block text-slate-500'
+                        isActive ? 'block text-[var(--color-accent-primary)]' : 
+                        isCompleted ? 'hidden sm:block text-[var(--color-text-primary)]' : 'hidden sm:block text-[var(--color-text-secondary)]'
                       }`}>
                         {s.label}
                       </span>
@@ -475,12 +473,12 @@ export default function Form1901() {
               )}
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="p-6 sm:p-10 bg-slate-800/30">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-10 bg-[var(--color-background)]">
               
               {/* STEP 1 */}
               {step === 1 && (
                 <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
-                  <h2 className="text-xl font-bold text-[var(--color-bir-yellow)] border-b border-slate-700 pb-3">Step 1: Applicant Personal Details</h2>
+                  <h2 className="text-xl font-bold text-[var(--color-accent-primary)] border-b border-[var(--color-border)] pb-3">Step 1: Applicant Personal Details</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <InputField label="Taxpayer Identification Number (TIN)" name="tin" placeholder="000-000-000-000" formData={formData} updateForm={updateForm} optionalLabel />
                     <InputField label="PhilSys Card Number" name="philsysCardNum" placeholder="0000-0000-0000-0000" formData={formData} updateForm={updateForm} optionalLabel />
