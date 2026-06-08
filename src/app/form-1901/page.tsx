@@ -332,7 +332,7 @@ export default function Form1901() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex flex-col font-sans relative overflow-hidden">
         {/* Header */}
-        <nav className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-50">
+        <nav className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-50 light-mode:bg-[var(--bir-blue)] light-mode:border-[var(--bir-blue)]">
           <div className="max-w-md mx-auto px-6 py-3 sm:max-w-2xl flex items-center justify-between gap-3">
             {step < 8 && (
               <Link href="/" className="hover:text-[var(--color-text-secondary)] transition-colors">
@@ -342,8 +342,8 @@ export default function Form1901() {
             <Link href="/" className="flex items-center gap-2 font-bold">
               <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
               <div className="flex flex-col leading-tight -space-y-0.5">
-                <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
-                <span className="text-sm text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
+                <span className="text-xs text-[var(--color-text-secondary)] light-mode:text-white/70">Bureau of</span>
+                <span className="text-sm text-[var(--color-accent-primary)] font-bold light-mode:text-yellow-400">Internal Revenue</span>
               </div>
             </Link>
             

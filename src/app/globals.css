@@ -11,9 +11,10 @@
   --text-secondary: #a0a9b8;
   --accent-primary: #fdb913;
   --accent-secondary: #cf142b;
+  --bir-blue: #050a15;
 }
 
-/* Light Mode - Refined & Eye-Pleasing */
+/* Light Mode - With Blue Brand Accents */
 html.light-mode {
   --background: #faf9f7;
   --foreground: #1a1a1a;
@@ -24,6 +25,7 @@ html.light-mode {
   --text-secondary: #6b6b6b;
   --accent-primary: #fdb913;
   --accent-secondary: #cf142b;
+  --bir-blue: #050a15;
 }
 
 @theme inline {
@@ -36,6 +38,7 @@ html.light-mode {
   --color-text-secondary: var(--text-secondary);
   --color-accent-primary: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
+  --color-bir-blue: var(--bir-blue);
 }
 
 html {
@@ -51,5 +54,37 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode specific adjustments */
+html.light-mode img[alt="Background"] {
+  opacity: 0 !important;
+  display: none !important;
+}
+
+html.light-mode .bg-gradient-to-b {
+  background: none !important;
+}
+
+/* Blue headers in light mode */
+html.light-mode header,
+html.light-mode nav {
+  background-color: #050a15 !important;
+  background-image: none !important;
+  color: white !important;
+}
+
+html.light-mode header span,
+html.light-mode nav span {
+  color: inherit !important;
+}
+
+html.light-mode header span.text-white\/70,
+html.light-mode nav span.text-white\/70 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+html.light-mode .text-yellow-400 {
+  color: #fef08a !important;
 }
 

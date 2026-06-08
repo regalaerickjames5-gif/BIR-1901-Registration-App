@@ -23,13 +23,13 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
       {/* Header */}
-      <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-40">
+      <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-40 light-mode:bg-[var(--bir-blue)] light-mode:border-[var(--bir-blue)]">
         <div className="max-w-md mx-auto px-6 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-bold">
             <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
             <div className="flex flex-col leading-tight -space-y-0.5">
-              <span className="text-xs text-[var(--color-text-secondary)]">Bureau of</span>
-              <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold">Internal Revenue</span>
+              <span className="text-xs text-[var(--color-text-secondary)] light-mode:text-white/70">Bureau of</span>
+              <span className="text-sm sm:text-lg text-[var(--color-accent-primary)] font-bold light-mode:text-yellow-400">Internal Revenue</span>
             </div>
           </Link>
           {mounted && <ThemeToggle />}
