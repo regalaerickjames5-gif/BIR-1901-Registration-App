@@ -19,9 +19,9 @@ export default function LoginPage() {
       {/* Header */}
       <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-lg sticky top-0 z-40">
         <div className="max-w-md mx-auto px-6 py-3 flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-            <div className="w-9 h-9 bg-[var(--color-accent-primary)] rounded-lg flex items-center justify-center text-black font-extrabold text-sm">BIR</div>
-            <span className="hidden sm:inline">BIR Form 1901</span>
+          <Link href="/" className="flex items-center gap-2 font-bold">
+            <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
+            <span className="text-sm sm:text-lg">BIR Form 1901</span>
           </Link>
         </div>
       </header>

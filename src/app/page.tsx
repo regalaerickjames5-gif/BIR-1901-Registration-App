@@ -18,7 +18,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-surface)]/80 backdrop-blur-lg border-b border-[var(--color-border)]">
         <div className="max-w-md mx-auto px-6 py-3 flex items-center justify-between sm:max-w-2xl">
           <Link href="/" className="flex items-center gap-2 font-bold">
-            <div className="w-9 h-9 bg-[var(--color-accent-primary)] rounded-lg flex items-center justify-center text-black font-extrabold text-sm">BIR</div>
+            <img src="/bir-logo.png" alt="BIR" className="w-9 h-9 object-contain" />
             <span className="text-sm sm:text-lg">BIR Form 1901</span>
           </Link>
           <div className="flex gap-3">
